@@ -1,18 +1,35 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.childhood.crazyfinger"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="1.0.0" >
+
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
 
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="19" />
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-         <activity
+        <activity
             android:name=".MainActivity"
             android:configChanges="keyboardHidden|orientation"
             android:label="@string/app_name" >
@@ -22,6 +39,61 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".SecondActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="@string/app_name" />
+        
+        <activity
+            android:name="cn.sharesdk.framework.ShareSDKUIShell"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" >
+            <intent-filter>
+                <data android:scheme="tencent100371282" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- <activity
+            android:name="cn.sharesdk.framework.FakeActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" /> -->
+        <!-- 微信分享回调 -->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!-- 易信分享回调 -->
+        <activity
+            android:name=".yxapi.YXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        
+        <activity
+            android:name="cn.waps.extend.AppWall"
+            android:configChanges="keyboardHidden|orientation" />
+        <meta-data
+            android:name="WAPS_ID"
+            android:value="4730bb1df30a16d9a9884d5264e221da" />
+        <meta-data
+            android:name="WAPS_PID"
+            android:value="eoe" />
+        
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="53e6cadcfd98c59052038b67" >
+        </meta-data>
+        <meta-data android:value="nearme" android:name="UMENG_CHANNEL" />
     </application>
 
 </manifest>

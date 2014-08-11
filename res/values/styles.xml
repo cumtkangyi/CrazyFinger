@@ -17,4 +17,10 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
+    <style name="FooterBar">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:background">#ffdedede</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">40.0dip</item>
+    </style>
 </resources>
